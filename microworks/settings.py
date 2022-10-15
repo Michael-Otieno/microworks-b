@@ -44,8 +44,23 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
-    'users'
+    'rest_framework.authtoken',
+    'drf_yasg',
+    'attendance'
+
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+    'rest_framework.authentication.SessionAuthentication',
+    'rest_framework.authentication.BasicAuthentication',
+    'rest_framework_simplejwt.authentication.JWTAuthentication', 
+    'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DATETIME_FORMAT': "%Y-%m-%d %H:%M:%S",
+    
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -84,7 +99,7 @@ WSGI_APPLICATION = 'microworks.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'microworks', 
+        'NAME': 'users', 
         'USER': 'mike', 
         'PASSWORD': os.environ.get('PASSWORD'),
         'HOST': '127.0.0.1', 
@@ -117,7 +132,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 
@@ -133,3 +148,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY')
