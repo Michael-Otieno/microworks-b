@@ -104,10 +104,10 @@ WSGI_APPLICATION = 'microworks.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'users', 
-        'USER': 'mike', 
+        'NAME': 'd515ug35ogn30s', 
+        'USER': 'yzmwcyqbkulpqz', 
         'PASSWORD': os.environ.get('PASSWORD'),
-        'HOST': '127.0.0.1', 
+        'HOST': 'ec2-44-205-63-142.compute-1.amazonaws.com', 
         'PORT': '5432',
     }
 }
