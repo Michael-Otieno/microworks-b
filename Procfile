@@ -1,1 +1,1 @@
-web: gunicorn microworks.wsgi
+web: gunicorn microworks.wsgi --log-file -
