@@ -8,4 +8,4 @@ class AttendanceSerializer(serializers.ModelSerializer):
 
   class Meta:
     model=Attendance
-    fields=['id','full_names','email','machine_id','availability','date','time_in']
+    fields=['id','full_names','email','machine_id','availability','time_in']
