@@ -22,7 +22,7 @@ from rest_framework import permissions
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="BudgetMe API",
+        title="Microworks API",
         default_version='v1',
         description="The budget me web app official api documentation",
         terms_of_service="https://opensource.org/licenses/MIT",
