@@ -15,7 +15,21 @@ from dotenv import load_dotenv
 import os
 import dj_database_url
 import django_heroku
+import environ
 
+env=environ.Env()
+environ.Env.read_env()
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': env('POSTGRES_DB_NAME'),
+        'USER': env('POSTGRES_USER'),
+        'PASSWORD': env('POSTGRES_PASSWORD'),
+        'HOST': env('POSTGRES_HOST'),
+        'PORT': env('POSTGRES_PORT'),
+    }
+}
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
@@ -161,5 +175,3 @@ STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY')
-django_heroku.settings(locals())

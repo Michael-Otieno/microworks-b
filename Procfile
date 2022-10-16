@@ -1,1 +1,4 @@
-web: gunicorn microworks.wsgi --log-file -
+
+web: gunicorn microworks.wsgi:application --log-file - --log-level debug
+python manage.py collectstatic --noinput
+manage.py migrate
