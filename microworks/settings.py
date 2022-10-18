@@ -119,6 +119,7 @@ WSGI_APPLICATION = 'microworks.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
+CORS_ALLOWED_ORIGINS = ['microworks-b.herokuapp.com']
 
 
 DATABASES = {
