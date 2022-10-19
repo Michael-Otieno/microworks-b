@@ -105,3 +105,11 @@ Content-Length: 35
 
 {"status":404,"reason":"Not found"}
 ```
+## Known Bugs
+
+## Contact Information
+- If you have any question or contributions, please email me at m.otieno205@gmail.com
+
+## License
+- Copyright (c) 2022 Michael-Otieno
+
