@@ -1,5 +1,5 @@
 # microworks-b
-- Django restframework Web Api for taking daily attendance of people
+- Django restframework Web Api for taking daily attendance of workers.
 
 ## Requirements
 
@@ -36,7 +36,7 @@ pip install -r requirements.txt
 ### Get list of attedance
  `Request GET  /attendance-list/`
  ```bash
- curl -i -H 'Accept: application/json' http://localhost:7000/attendance-list//
+ curl -i -H 'Accept: application/json' http://localhost:7000/attendance-list/
  ```
 
 ##### Response
@@ -61,7 +61,7 @@ Content-Length: 1
 - ##### Response
 ```bash 
 HTTP/1.1 201 Created
-Date: Thu, 24 Feb 2011 12:36:30 GMT
+Date: Tue, 24 Feb 2022 07:36:30 GMT
 Status: 201 Created
 Connection: close
 Content-Type: application/json
@@ -72,3 +72,36 @@ Content-Length: 36
 
  ```
  
+### Get a specific attedance
+ `Request GET  /attendance/:id`
+ ```bash
+ curl -i -H 'Accept: application/json' http://localhost:7000/attendance/1
+ ```
+ - ##### Response
+```bash 
+HTTP/1.1 200 OK
+Date: Tue, 24 Feb 2022 07:36:30 GMT
+Status: 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 36
+
+{"id":1,"full_name":"Foo","email":"foo@gmail.com","machine_id":"121w","availability":"Present"}
+
+ ```
+ ### Get a non-existent attedance
+ `Request GET  /attendance/:id`
+ ```bash
+ curl -i -H 'Accept: application/json' http://localhost:7000/attendance/5
+ ```
+  - ##### Response
+  ```bash
+  HTTP/1.1 404 Not Found
+Date: Thu, 24 Feb 2011 12:36:30 GMT
+Status: 404 Not Found
+Connection: close
+Content-Type: application/json
+Content-Length: 35
+
+{"status":404,"reason":"Not found"}
+```
