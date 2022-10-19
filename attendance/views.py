@@ -6,13 +6,19 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .permissions import IsAdminOrReadOnly
+from rest_framework.generics import GenericAPIView 
+from rest_framework import generics
+
 # Create your views here.
 
-class AttendanceList(APIView):
+class AttendanceList(generics.GenericAPIView):
   '''
   list of all in attendance or add attendance
   '''
-  
+  serializer_class = AttendanceSerializer
+  def get_queryset(self):
+    return Attendance.objects.all()
+
   def get(self,request,format=None):
     attendance = Attendance.objects.all()
     serializer = AttendanceSerializer(attendance, many=True)
@@ -25,10 +31,11 @@ class AttendanceList(APIView):
       return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class AttendanceDetail(APIView):
+class AttendanceDetail(generics.GenericAPIView):
   """
   Retrieve, update or delete someones attendance details
   """
+  serializer_class = AttendanceSerializer
   permission_classes=(IsAdminOrReadOnly,)  
   def get_object(self, pk):
     try:

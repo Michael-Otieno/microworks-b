@@ -43,12 +43,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('secret_key')
-# SECRET_KEY = os.environ(‘secret_key’)
+#SECRET_KEY="PASSWORDDD" #change
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
+DEBUG = False 
+#DEBUG=True#change
+#ALLOWED_HOSTS=['*']#change
 ALLOWED_HOSTS = ['microworks-b.herokuapp.com']
 
 
@@ -120,18 +121,8 @@ WSGI_APPLICATION = 'microworks.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 CORS_ALLOWED_ORIGINS = ['microworks-b.herokuapp.com']
+#change
 
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd515ug35ogn30s', 
-        'USER': 'yzmwcyqbkulpqz', 
-        'PASSWORD': os.environ.get('PASSWORD'),
-        'HOST': 'ec2-44-205-63-142.compute-1.amazonaws.com', 
-        'PORT': '5432',
-    }
-}
 #
 db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES['default'].update(db_from_env)
